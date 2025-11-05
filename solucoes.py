@@ -17,5 +17,31 @@ def cifra_de_cesar(texto, deslocamento):
     pass
 
 def valida_cpf(cpf_string):
-    # TODO: implementar a lógica (Gustavo)
-    pass
+    # Remover caracteres não numéricos
+    cpf = ''.join([c for c in cpf_string if c.isdigit()])
+
+    # Verificar se o CPF tem 11 dígitos
+    if len(cpf) != 11:
+        return False
+
+    # Calcular o primeiro dígito verificador
+    soma = 0
+    for i in range(9):
+        soma += int(cpf[i]) * (10 - i)
+    resto = soma % 11
+    digito1 = 0 if resto < 2 else 11 - resto
+    # Comparar o calculado com o fornecido
+    if digito1 != int(cpf[9]):
+        return False
+
+    # Calcular o segundo dígito verificador
+    soma = 0
+    for i in range(10):
+        soma += int(cpf[i]) * (11 - i)
+    resto = soma % 11
+    digito2 = 0 if resto < 2 else 11 - resto
+    # Comparar o calculado com o fornecido
+    if digito2 != int(cpf[10]):
+        return False
+
+    return True
