@@ -8,9 +8,10 @@ def test_sao_anagramas():
 
 def test_valida_cpf():
     assert valida_cpf("12345678909") == True
+    assert valida_cpf("123.456.789-09") == True
     assert valida_cpf("") == False
-    assert valida_cpf("111111111111") == False
-    assert valida_cpf("12345678977") == False
+    assert valida_cpf("123.456.789-012") == False
+    assert valida_cpf("123.456.789-77") == False
     print("Todos os testes passaram!")
 
 
