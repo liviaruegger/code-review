@@ -24,6 +24,10 @@ def valida_cpf(cpf_string):
     if len(cpf) != 11:
         return False
 
+    # Verificar se todos os dígitos são iguais
+    if cpf == cpf[0] * 11:
+        return False
+
     # Calcular o primeiro dígito verificador
     soma = 0
     for i in range(9):
