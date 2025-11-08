@@ -13,7 +13,20 @@ def sao_anagramas(string1, string2):
     return sorted(str1) == sorted(str2)
 
 def cifra_de_cesar(texto, deslocamento):
-    # TODO: implementar a lógica (Be)
+    cifrado = ""
+    for char in texto:
+        if 'a' <= char <= 'z':
+            resultado += chr((ord(char) - ord('a') + deslocamento) % 26 + ord('a'))
+#adiciona deslocamento
+        elif 'A' <= char <= 'Z':
+            resultado += chr((ord(char) - ord('A') + deslocamento) % 26 + ord('A'))
+#adiciona deslocamento
+        else:
+#nao muda nada se nao eh letra
+            cifrado += char
+    return cifrado   
+
+ # TODO: implementar a lógica (Be)
     pass
 
 def valida_cpf(cpf_string):
